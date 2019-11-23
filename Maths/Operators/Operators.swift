@@ -1,5 +1,5 @@
 //
-//  Maths.swift
+//  Operators.swift
 //  Maths
 //
 //  Created by Shadrach Mensah on 23/11/2019.
@@ -8,6 +8,9 @@
 
 import Foundation
 
-class Maths {
 
+postfix operator ** 
+
+postfix func **<T:Numeric>(lhs:T)->T{
+    return lhs * lhs
 }
