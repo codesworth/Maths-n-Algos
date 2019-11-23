@@ -11,10 +11,10 @@ import XCTest
 
 class Tests: XCTestCase {
     
-    var perfectSquares:PerfectSquares
+    var perfectSquares:PerfectSquares!
 
     override func setUp() {
-        perfectSquares = PerfectSquares(0...4)
+        perfectSquares = PerfectSquares(0...20)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -23,7 +23,8 @@ class Tests: XCTestCase {
     }
 
     func test_perfectSquaresClosedRange(){
-        XCTAssertEqual(perfectSquares[3], 16)
+        print(perfectSquares.elements(in: Range(1...3)))
+        //XCTAssertEqual(perfectSquares[0...2], [0,1,4])
     }
     func testPerformanceExample() {
         // This is an example of a performance test case.

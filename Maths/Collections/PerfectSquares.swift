@@ -15,17 +15,17 @@ struct  PerfectSquares:RandomAccessCollection {
     
     typealias Index = Int
     
-    let range:Range<Int>
+    let range:CountableClosedRange<Int>
     
     var startIndex: Int{
-        return range.startIndex
+        return range.lowerBound
     }
     
     var endIndex: Int{
-        return range.endIndex
+        return range.upperBound
     }
     
-    init(_ range:Range<Int>) {
+    init(_ range:CountableClosedRange<Int>) {
         self.range = range
     }
     
@@ -34,4 +34,15 @@ struct  PerfectSquares:RandomAccessCollection {
         return position**
         
     }
+    
+    subscript(bounds: Range<Int>) -> [Element] {
+        precondition(indices.contains(bounds.lowerBound) && indices.contains(bounds.upperBound), "Out Of Range")
+        return bounds.map {$0**}
+    }
+    
+    func elements(in range:Range<Int>)-> [Element]{
+        precondition(indices.contains(range.lowerBound) && indices.contains(range.upperBound), "Out Of Range")
+        return range.map {$0**}
+    }
+    
 }
